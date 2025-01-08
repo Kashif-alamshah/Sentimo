@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/logo1.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='image/img4.jpg') }}");
+            background-size: cover;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+          <div class="navbar-brand">
+            <a href="{{ url_for('home') }}">
+              <img src="{{ url_for('static', filename='image/logo.png') }}" alt="Sentimo Logo" class="logo">
+            </a>
+          </div>
+          
+          <input type="checkbox" id="menu-toggle" class="menu-toggle">
+          <label for="menu-toggle" class="hamburger">&#9776;</label>
+          <ul class="navbar-links">
+            <li><a href="{{ url_for('home') }}" class="{% if request.path == url_for('home') %}active{% endif %}">Home</a></li>
+            <li><a href="{{ url_for('about') }}" class="{% if request.path == url_for('about') %}active{% endif %}">About</a></li>
+            <li><a href="{{ url_for('data') }}" class="{% if request.path == url_for('data') %}active{% endif %}">Data</a></li>
+            <li class="navbar-help"><a href="{{ url_for('about') }}"class="{% if request.path == url_for('about') %}active{% endif %}">?</a></li> <!-- Move this here -->
+          </ul>
+        </nav>
+      </header>
+      
+
+    {% block content %}
+    {% endblock %}
+    <footer>
+      <p>&copy; {{ current_year }} Sentimo. All rights reserved.</p>
+  </footer>
+</body>
+</html>

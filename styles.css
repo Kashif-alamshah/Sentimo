@@ -1,0 +1,577 @@
+/* General Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 100; /* Ensure the navbar stays on top */
+}
+
+.navbar-brand h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  color: whitesmoke;
+  font-size: 36px;
+  margin: 0;
+}
+
+.navbar-links {
+  display: flex;
+  list-style-type: none;
+  gap: 20px;
+  margin-left: auto; /* Add a little left margin to nudge the links left */
+  margin-right: auto; /* Ensures the links align towards the left */
+  padding-right: 400px;
+}
+
+
+.navbar-links li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: whitesmoke;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a.active {
+  font-weight: bold;
+  color: #00bfff;
+}
+
+.navbar-links li a:hover {
+  color: #00bfff;
+}
+
+.navbar-help {
+  position: relative;
+  right: 0; /* Default positioning for desktop (right) */
+  z-index: 101; /* Ensure it stays on top of navbar */
+}
+
+.navbar-help a {
+  text-decoration: none;
+  font-size: 20px;
+  color: whitesmoke;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-help a:hover {
+  color: whitesmoke;
+  background-color: #00bfff;
+}
+
+/* Content styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Rajdhani', sans-serif;
+  color: #333;
+  z-index: 1; /* Ensure content stays below the navbar */
+}
+
+.content {
+  position: relative;
+  z-index: 1; /* Ensure it is visible and below the navbar */
+  padding-top: 80px; /* To avoid overlap with navbar */
+}
+
+/* Hamburger Icon for mobile */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Ensure it stays on top */
+  }
+
+  .navbar-links li a {
+    color: whitesmoke;
+  }
+
+  .navbar-links li a:hover {
+    color: #00bfff;
+  }
+
+  .navbar-help {
+    padding: 10px 0; /* Space out the help icon from links */
+    width: 100%; /* Full width for mobile layout */
+    text-align: center; /* Center the icon */
+    background-color: rgba(0, 0, 0, 0.7); /* Same translucent background as links */
+    position: relative; /* Ensure positioning works for mobile */
+    z-index: 101; /* Ensure help icon stays above navbar */
+  }
+
+  .menu-toggle:checked + .hamburger + .navbar-links {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+  .navbar-help {
+    position: absolute; /* Keep it fixed on the far right */
+    right: 20px; /* Align it to the right */
+    top: 15px; /* Align with navbar height */
+  }
+}
+/* Add the fly-in effect on load */
+/* Add the fly-in effect on load */
+/* Add the fly-in effect on load */
+.sentiment-description {
+  padding: 150px;
+  max-width: 1300px;
+  border-radius: 8px;
+  color: whitesmoke; /* Adjust text color */
+  opacity: 0; /* Start with the element invisible */
+  transform: translateY(20px); /* Start the element slightly below its position */
+  animation: flyIn 2s ease-out forwards; /* Apply fly-in animation */
+}
+
+/* Animation for the fly-in effect */
+@keyframes flyIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Start below the final position */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at the original position */
+  }
+}
+
+/* Hover effect to make the text grow larger */
+.sentiment-description:hover {
+  transform: scale(1.1); /* Increase the size of the text by 10% */
+  transition: transform 0.3s ease-out; /* Smooth and slow transition for hover effect */
+}
+/* Container that holds both the description and rich text box */
+/* Container that holds both the description and rich text box */
+/* Container that holds both the description and rich text box */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  align-items: flex-start; 
+  transform: translateY(20px); /* Start the element slightly below its position */
+  animation: flyIn 1.5s ease-out forwards;/* Align items to the left */
+}
+
+/* Styling for the description */
+.sentiment-description {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px; /* Add space between description and text box */
+  color: whitesmoke;
+  width: 100%; /* Ensures it takes the full width of the container */
+}
+
+/* Styling for the rich text box container */
+.rich-textbox-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between text area and button */
+  width: 100%; /* Ensures it takes the full width of the container */
+}
+
+/* Rich text box styling */
+.rich-textbox {
+  width: 155%;
+  height: 200px; /* Make the box bigger */
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px; /* Rounded corners */
+  background-color: rgba(255, 255, 255, 0.171); /* More translucent background */
+  resize: vertical;
+  color: black; /* Darker text color for better readability */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for a raised effect */
+  font-weight: bold; /* Makes the text bold */
+}
+
+
+/* Button styling */
+.analyze-btn {
+  display: block;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  background-color: rgba(0, 191, 255, 0.5); /* Translucent blue */
+  color: white;
+  border-radius: 20px; /* More rounded */
+  width: fit-content;
+  margin-left: 333px; /* Center the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Hover effect for the analyze button */
+.analyze-btn:hover {
+  background-color: rgba(0, 191, 255, 0.7); /* Slightly less translucent on hover */
+}
+
+/* Optional: Add hover effect to the rich text box */
+.rich-textbox:hover {
+  background-color: rgba(255, 255, 255, 0.7); /* Slightly less translucent */
+  transition: background-color 0.3s ease;
+}
+
+/* Container for the scale */
+.sentiment-scale-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 20px auto;
+}
+
+/* The scale itself with translucent background */
+.sentiment-scale {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to right, #410000, gray, #02024f);
+  border-radius: 10px;
+  overflow: hidden; /* Prevent overflow */
+  margin: 15px;
+}
+
+.sentiment-marker {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 50%;
+  transition: left 0.9s ease; /* Smooth movement */
+}
+
+/* Labels for negative, neutral, and positive */
+.sentiment-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  font-size: 14px;
+  color: whitesmoke;
+}
+/* Add background to the body */
+body {
+  background-color: #f4f4f9;
+  font-family: 'Rajdhani', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+/* Content wrapper */
+.content-wrapper {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Title Section */
+.intro h1 {
+  font-size: 36px;
+  color: #00bfff;
+  text-align: center;
+  margin-bottom: 20px;
+  transform: translateY(20px);
+  animation: flyIn 1.5s ease-out forwards;
+}
+
+.intro p {
+  font-size: 18px;
+  text-align: justify;
+  line-height: 1.8;
+  /* color: #333; */
+  color: whitesmoke;
+  margin-bottom: 100px;
+  transform: translateY(20px);
+  animation: flyIn 1.5s ease-out forwards;
+}
+
+/* Data Description Section */
+/* Data Description Section */
+.data-description {
+  text-align: center; /* Center the text */
+}
+
+.data-description h2 {
+  font-size: 36px;
+  color: #00bfff; /* Adjust color if needed */
+  margin-bottom: 20px;
+  transform: translateY(20px);
+  animation: flyIn 1.5s ease-out forwards;
+}
+
+.data-description p {
+  background-color: transparent;
+  color: whitesmoke;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 150px;
+  font-size: 18px;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: flyIn 1.5s ease-out forwards;
+}
+
+
+/* Call-to-Action Section */
+.cta {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: whitesmoke;
+  transform: translateY(20px);
+  animation: flyIn 1.5s ease-out forwards;
+}
+
+.cta-button {
+  /* display: block; */
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  background-color: rgba(0, 191, 255, 0.5); /* Translucent blue */
+  color: white;
+  border-radius: 20px; /* More rounded */
+  width: fit-content;
+  margin: 0 auto; /* Center the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.cta-button:hover {
+  background-color: #008cba;
+}
+/* main {
+  flex: 1;
+} */
+/* Footer Section */
+footer {
+  background-color: transparent;
+  color: whitesmoke;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  width: 100%;
+  z-index: 10; /* Ensures the footer stays above other elements */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for clarity */
+  pointer-events: none; /* Ensures footer doesn't block interactions with content */
+}
+/* Fly-in animation */
+@keyframes flyIn {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+/* General Styling */
+.content-wrapper {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* General Styling for Centering the Content */
+.about-sentimo {
+  font-family: 'Rajdhani', sans-serif;
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  color: #f1f1f1; /* Light text for contrast */
+  border-radius: 50px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* Soft shadow */
+  text-align: center; /* Center the text */
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+.about-sentimo:hover{
+  background-color:translucent;
+  box-shadow: 0px 30px 30px rgba(0, 0, 0, 1); /* Soft shadow */
+}
+
+/* Styling for Heading */
+.about-sentimo h1, .about-sentimo h2 {
+  color: #00bfff; /* Bright blue for headings */
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Paragraph Styling */
+.about-sentimo p {
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 25px;
+  transform: translateY(20px);
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Unordered List Styling */
+.about-sentimo ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  color: whitesmoke;
+  line-height: 1.8;
+  text-align: left;
+  margin-left: 25px;
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* List Item Styling */
+.about-sentimo li {
+  margin-bottom: 15px;
+}
+
+.about-sentimo ul li strong {
+  color: #00bfff; /* Bright blue for list highlights */
+}
+
+/* Hover Effects for Links (if any) */
+.about-sentimo a {
+  color: #00bfff;
+  text-decoration: none;
+}
+
+.about-sentimo a:hover {
+  text-decoration: underline;
+}
+
+/* Animation for fadeInUp */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Style for the overall language selector */
+.language-selector {
+  text-align: center;
+  margin: 20px auto;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.language-selector h1 {
+  font-size: 24px;
+  color: whitesmoke;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Style for the <select> element */
+#language {
+  padding: 10px;
+  font-size: 16px;
+  color: whitesmoke;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  appearance: none; /* Remove the default dropdown arrow */
+  -webkit-appearance: none; /* For Safari */
+  -moz-appearance: none; /* For Firefox */
+  width: 200px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Add custom arrow for the <select> */
+#language::after {
+  content: '\2193'; /* Downward arrow symbol */
+  font-size: 20px;
+  color: whitesmoke;
+  position: absolute;
+  right: 10px;
+  top: calc(50% - 10px); /* Center the arrow vertically */
+  pointer-events: none; /* Make the arrow non-interactive */
+}
+
+/* Style for the <option> elements inside the <select> */
+#language option {
+  background-color: rgba(0, 0, 0, 0.4); /* Transparent background for options */
+  color: whitesmoke;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Optional: Change the background of the select box when focused */
+#language:focus {
+  border-color: #00bfff;
+}
+.card{
+  font-family: 'Rajdhani', sans-serif;
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  color: #f1f1f1; /* Light text for contrast */
+  border-radius: 50px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* Soft shadow */
+  text-align: center; /* Center the text */
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+.card:hover{
+  background-color:translucent;
+  box-shadow: 0px 30px 30px rgba(0, 0, 0, 1); /* Soft shadow */
+}
+.navbar-brand .logo {
+  height: 70px;
+  width: 250px;
+  display: block;
+}
+
+.navbar-brand a {
+  text-decoration: none; /* Remove underline from the logo link */
+}
+/* Replace globe icon with your logo */
+.globe-icon {
+  background-image: url("image/logo1.png"); /* Replace with the path to your logo image */
+  background-size: cover;
+}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="content-wrapper">
+        <div class="card">
+        <section class="intro">
+            <h1>About the Developers</h1> <p>Sentimo is a state-of-the-art sentiment analysis system developed by a student from Bahria University Karachi, Kashif Alam. Their passion for artificial intelligence and natural language processing (NLP) drove them to create a tool that excels in understanding the emotional tone of textual content. With a focus on innovation and accuracy, Kashif have leveraged cutting-edge technology, including the DistilRoBERTa transformer model, to ensure Sentimo delivers reliable and insightful sentiment predictions. The system has been trained on a large and diverse dataset, enabling it to handle a wide variety of text inputs with exceptional precision and dependability. Their collaborative effort reflects their commitment to advancing the field of NLP and providing practical solutions for real-world applications.</p></section>
+
+        <!-- Data Description Section -->
+        <section class="data-description">
+            <h2>Training Data</h2> <p>Sentimo uses DistilBERT which is using the Stanford Sentiment Treebank 2 (SST-2) dataset, a benchmark dataset widely used in sentiment analysis tasks. The SST-2 dataset comprises high-quality, labeled examples of English text, specifically designed for binary sentiment classification. It contains a diverse mix of movie review excerpts that are annotated with "positive" or "negative" sentiment labels. This dataset is well-regarded for its rich linguistic diversity, capturing subtle nuances in language that are critical for accurate sentiment analysis. By leveraging SST-2, Sentimo ensures reliable and precise sentiment predictions, making it adept at understanding the complexities of emotional tone across various textual inputs.</p></div>
+        <!-- CTA Section -->
+        <section class="cta">
+            <p>Ready to analyze sentiment? Explore the data or start a new analysis!</p>
+            <a href="/" class="cta-link">
+                <button class="cta-button">Start Analysis</button>
+            </a>
+            
+        </section>
+    </div>
+{% endblock %}

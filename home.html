@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="sentiment-description">
+  <br>
+  <h1>SENTIMO: UNVEILING EMOTIONS, EMPOWERING INSIGHTS</h1>
+  <p>Sentimo categorizes the emotional tone of a text as either positive, negative, or neutral. A significantly negative sentiment, such as rage or frustration, is classified as "negative," while a significantly positive sentiment, such as happiness, approbation, or excitement, is categorized as "positive." Neutral sentiment, when the material is neither positive nor negative, is in between positive and negative. Moderately negative or positive emotions are also grouped under "negative" or "positive," respectively, depending on the degree of emotional intensity. This categorical approach aids in a more thorough understanding and analysis of the text's emotional content</p>
+</div>
+<div class="card">
+  <div class="container">
+    <form id="sentimentForm" method="post" action="/analyze">
+      <!-- Language Selector -->
+      <div class="language-selector">
+        <label for="language"><h1>Choose a language:</h1></label>
+        <select id="language" name="language">
+          <option value="en">English</option>
+          <option value="de">German</option>
+          <option value="es">Spanish</option>
+          <option value="ur">Urdu</option>
+        </select>
+      </div>
+      <!-- Rich Text Box for user input -->
+      <div class="rich-textbox-container">
+        <textarea name="text" class="rich-textbox" placeholder="Type your text here..."></textarea><br>
+        <button type="submit" class="analyze-btn">Analyze Sentiment</button><br>
+      </div>
+    </form>
+    <!-- Sentiment Scale -->
+    <div class="sentiment-scale-container">
+      <div class="sentiment-scale">
+        <div class="sentiment-marker" id="sentimentMarker" style="left: 50%;"></div>
+      </div>
+      <div class="sentiment-labels">
+        <span>Negative</span>
+        <span>Positive</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add JavaScript -->
+<script>
+const sentimentForm = document.getElementById("sentimentForm");
+const sentimentMarker = document.getElementById("sentimentMarker");
+
+sentimentForm.addEventListener("submit", async function (event) {
+  event.preventDefault(); // Prevent form from refreshing the page
+
+  const formData = new FormData(sentimentForm);
+  const response = await fetch("/analyze", {
+    method: "POST",
+    body: formData,
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    const sentiment = data.sentiment;
+
+    // Update marker position based on sentiment score
+    let markerPosition = ((sentiment + 1) / 2) * 100; // Convert [-1, 1] to [0, 100]
+
+    // Ensure the marker stays within the bounds
+    if (markerPosition < 0) markerPosition = 0;
+    if (markerPosition > 100) markerPosition = 100;
+
+    sentimentMarker.style.left = `${markerPosition}%`;
+  } else {
+    alert("Error analyzing sentiment. Please provide text.");
+  }
+});
+
+</script>
+{% endblock %}

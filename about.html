@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+  <section class="about-sentimo">
+    <h1>About Sentimo</h1>
+    <p>Sentimo is an advanced sentiment analysis tool meticulously crafted to evaluate the emotional tone of textual content. At its core, Sentimo leverages DistilRoBERTa, a lightweight and efficient version of the RoBERTa transformer model, renowned for its exceptional performance in natural language understanding tasks. DistilRoBERTa has been fine-tuned specifically for sentiment analysis, enabling Sentimo to deliver highly accurate predictions by capturing the subtle nuances and contextual intricacies of language.</p> <h1>Key Features of Sentimo:</h1> <ul> <li>By utilizing DistilRoBERTa, Sentimo adeptly discerns a wide spectrum of emotions within text, ranging from positive sentiments like joy and approval to negative sentiments such as frustration and anger.</li> <li>DistilRoBERTa's architecture allows Sentimo to comprehend the context in which words are used, enhancing its ability to interpret complex emotional expressions accurately.</li> <li>The fine-tuning of DistilRoBERTa for sentiment analysis tasks ensures that Sentimo provides reliable and precise sentiment assessments across diverse types of text, including reviews, social media posts, and more.</li> </ul>
+    
+    <h2>Understanding the Sentiment Scale</h2>
+    <p>Sentimo employs a sentiment classification system that identifies the emotional tone of text as <strong>positive</strong>, <strong>negative</strong>, or <strong>neutral</strong>, providing an intuitive way to understand sentiment. The system distinguishes between negative sentiments, neutral emotions, and positive sentiments for a clear analysis of textual content.</p> <ul> <li><strong>Negative</strong>: Strongly negative sentiments, such as hatred, frustration, or anger.</li> <li><strong>Positive</strong>: Highly positive sentiments, indicating feelings like joy, approval, or enthusiasm.</li> <li>Moderately negative or positive emotions are classified under <strong>negative</strong> or <strong>positive</strong>, respectively, providing a nuanced understanding of the text’s sentiment.</li> </ul>
+
+    <p>This scale empowers users to easily interpret the emotional content of any text, offering a comprehensive sentiment analysis for deeper insights into the material's emotional tone.</p>
+  </section>
+  <section class="cta">
+    <p>Get to know about the data</p>
+    <a href="/data" class="cta-link">
+        <button class="cta-button">Sentimo Dataset</button>
+    </a>
+    
+</section>
+</div>
+{% endblock %}
